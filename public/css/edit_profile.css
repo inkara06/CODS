@@ -1,0 +1,89 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nicomoji.css);
+
+
+body{
+    background: linear-gradient(to bottom right, #476C9D, #7497CF, #2E4C72);
+    font-family: 'JetBrains Mono';
+    background-size: cover; 
+}
+/* ----- Navigation -----*/
+.navbar .nav-link{
+    color: #2E4C72;
+}
+.navbar .navbar-brand{
+    font-family: 'Nico Moji';
+    font-size: 2rem;
+    color: #476C9D;
+}
+.navbar .navbar-brand:hover{
+    color:#2E4C72
+}
+
+.navbar .btn:hover{
+    color: white;
+}
+/* ----- Main -----*/
+.main-section{
+   margin-top: 6%;
+   color: white;
+}
+button.btn{
+    background-color: #476C9D;
+    color: white;
+}
+button.btn:hover{
+    background-color: #7497CF;
+}
+.header-section2{
+    color: white;
+    font-size: 20px;
+}
+#extraContent{
+    display: none;
+}
+h2{
+    font-family: 'Nico Moji';
+}
+#myContainer{
+    background-color: white;
+    color:#476C9D;
+    box-shadow: "0px 4px 8px rgba(69, 101, 145, 0.5)";
+}
+#Gojo{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    align-items: center;
+}
+#Gojo:hover{
+    filter: brightness(0.5);
+}
+.container .form-control{
+    border-color: #476C9D;
+}
+.select-class{
+    color: #476C9D;
+}
+.main-section .container{
+    display: grid;
+}
+#blue_model{
+    height: 60%;
+}
+/* ----- Footer -----*/
+blockquote{
+    color: white;
+}
+.footer-section{
+    background-color: #476C9D;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+#footer_text:hover{
+    color: #7497CF;
+}
+.footer-section a{
+    text-decoration: none;
+    color: white;
+}

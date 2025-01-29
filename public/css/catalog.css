@@ -1,0 +1,84 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nicomoji.css);
+
+
+body{
+    background: linear-gradient(to bottom right, #476C9D, #7497CF, #2E4C72);
+    font-family: 'JetBrains Mono';
+    height: 100vh;
+    background-size: cover; 
+}
+/* ----- Navigation -----*/
+#myNavbar .nav-link{
+    color: #2E4C72;
+}
+.navbar .navbar-brand{
+    font-family: 'Nico Moji';
+    font-size: 2rem;
+    color: #476C9D;
+}
+#myNavbar .navbar-brand:hover{
+    color:#2E4C72
+}
+#myNavbar .btn:hover{
+    color: white;
+}
+button.btn{
+    background-color: #476C9D;
+    color: white;
+}
+button.btn:hover{
+    background-color: #2E4C72;
+    color: white;
+}
+#productCarousel{
+    width: 70%;
+}
+.catalog-title {
+    font-family: 'Nico Moji', sans-serif;
+    color: white;
+}
+.search-input {
+    border: none;
+    font-size: 16px;
+}
+
+.product-item {
+    width: 15%;
+    height: 25%;
+    background-color: white;
+    color: #476C9D;
+    font-size: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+.product-item img {
+  width: 70%; /* Размер изображения */
+  height: auto; /* Сохраняем пропорции */
+  transition: transform 0.3s ease;
+  object-fit: cover; /* Масштабирование по размеру контейнера */
+}
+.product-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(99, 90, 90, 0.2);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    border-radius: 50%; /* Закругляем кнопки */
+    filter: none;
+}
+
+
+.footer-section{
+    background-color: #476C9D;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+#footer_text:hover{
+    color: #7497CF;
+}
+.footer-section a{
+    text-decoration: none;
+    color: white;
+}

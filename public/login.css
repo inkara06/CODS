@@ -1,0 +1,165 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nicomoji.css);
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e7eef8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+button.btn{
+    background-color: #476C9D;
+    color: white;
+}
+button.btn:hover{
+    background-color: #2E4C72;
+    color: white;
+}
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.image-side {
+    flex: 1;
+    background: linear-gradient(135deg, #476C9D, #7497CF);
+}
+
+.image-side img {
+    width: 100%;
+}
+/* Стили для больших экранов (например, для компьютеров) */
+@media (min-width: 1024px) {
+    /* Твои стили для компьютера */
+}
+
+/* Стили для планшетов */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Твои стили для планшета */
+}
+
+/* Стили для телефонов */
+@media (max-width: 767px) {
+    /* Твои стили для телефона */
+}
+.form-side {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 28px;
+    color: #4f5b78;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 80%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #476C9D;
+    border-radius: 10px;
+    font-size: 16px;
+}
+button.btn{
+    background-color: #476C9D;
+    color: white;
+}
+button.btn:hover{
+    background-color: #7497CF;
+    color: white;
+}
+#resetButton{
+    background-color: red;
+}
+.social-login {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.social-icon {
+    margin-top: 20px;
+    font-size: 45px;
+    color: #476C9D;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.social-icon i:hover {
+    transform: scale(1.2);
+}
+.text{
+    font-family: 'Nico Moji', sans-serif;
+    color: #4f5b78;
+}
+#contactForm{
+    color: #365f8a;
+}
+#mySignIn{
+    background-color: #365f8a;
+    color: white;
+}
+
+
+
+form {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.carousel-inner img {
+    animation: slideFade 0.5s ease-in-out;
+}
+
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.button-group {
+    width: 80%;
+}
+
+button {
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #365f8a;
+    transform: translateY(-3px);
+}
+
+

@@ -1,0 +1,145 @@
+@import url(https://fonts.googleapis.com/earlyaccess/nicomoji.css);
+@import url(https://fonts.googleapis.com/css?family=Inder);
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e7eef8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Inder', sans-serif;
+    background: linear-gradient(to bottom right, #476C9D, #7497CF, #2E4C72);
+    background-size: cover;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+/* Стили для больших экранов (например, для компьютеров) */
+@media (min-width: 1024px) {
+    /* Твои стили для компьютера */
+}
+
+/* Стили для планшетов */
+@media (min-width: 768px) and (max-width: 1023px) {
+    /* Твои стили для планшета */
+}
+
+/* Стили для телефонов */
+@media (max-width: 767px) {
+    /* Твои стили для телефона */
+}
+.form-side {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+button.btn{
+    background-color: #476C9D;
+    color: white;
+}
+button.btn:hover{
+    background-color: #2E4C72;
+    color: white;
+}
+h2 {
+    font-size: 28px;
+    color: #4f5b78;
+    margin-bottom: 20px;
+    font-family: 'Nico Moji', sans-serif;
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #476C9D;
+    width: 80%;
+}
+
+.btn-primary {
+    background-color: #476C9D;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    width: 80%;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #365f8a;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    width: 80%;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.social-login {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+.social-icon {
+    margin-top: 20px;
+    font-size: 45px;
+    color: #476C9D;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    position: relative;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    font-family: 'Nico Moji', sans-serif;
+}
+
+.error {
+    color: red;
+}
