@@ -105,7 +105,7 @@ GET	/api/currency/:from/:to	Converts currency from one to another
 📌 How to Use the Admin Page?
 
 1. Logging in as Admin
-	•	Open /login and enter the admin credentials. (email: admin@cods.html ; password: 1234567)
+	•	Open /login and enter the admin credentials. (email: admin@cods.com ; password: 1234567)
 	•	After logging in, you will be redirected to /admin.
 
 2. Managing Users
