@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog Page</title>
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/catalog.css">
+    <link rel="icon" type="image/x-icon" href="imgs/CODS_LOGO.ico">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <div class="mt-5 justify-content-center align-items-center ">
+        <h1 class="text-center text-white mt-5">City Location Finder</h1>
+        <div class="container mt-4 text-center">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="input-group mb-3" style="max-width: 500px;">
+                    <input 
+                        type="text" 
+                        id="cityInput" 
+                        class="form-control form-control-lg border-primary rounded-start" 
+                        placeholder="Enter city name"
+                        style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"
+                    >
+                    <button 
+                        class="btn btn-primary btn-lg rounded-end" 
+                        onclick="getCityCoordinates()"
+                        style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">
+                        Get Coordinates
+                    </button>
+                </div>
+            </div>
+            <div 
+                id="coordinates" 
+                class="alert alert-light border text-secondary mt-3 p-3 mx-auto d-flex align-items-center justify-content-center" 
+                style="max-width: 500px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); font-size: 1.1rem;">
+                <!-- Coordinates will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function getCityCoordinates() {
+            const city = document.getElementById("cityInput").value.trim();
+            const coordinatesElement = document.getElementById("coordinates");
+            
+            if (!city) {
+                coordinatesElement.textContent = "Please enter a city name.";
+                return;
+            }
+        
+            try {
+                const response = await fetch(`/api/coordinates?city=${encodeURIComponent(city)}`);
+                const data = await response.json();
+            
+                if (data.error) {
+                    coordinatesElement.textContent = "City not found!";
+                } else {
+                    coordinatesElement.innerHTML = `
+                        <p>City: ${data.city}, ${data.country}</p>
+                        <p>Latitude: ${data.latitude}</p>
+                        <p>Longitude: ${data.longitude}</p>
+                        <p>Region: ${data.region}</p>
+                    `;
+                }
+            } catch (error) {
+                console.error("Error fetching coordinates:", error);
+                coordinatesElement.textContent = "Error loading data.";
+            }
+        }
+        function searchProduct() {
+            const input = document.getElementById("searchProductInput").value.toLowerCase();
+            const products = Array.from(document.getElementsByClassName("product-item"));
+            let found = false;
+
+            products.forEach(product => {
+                const name = product.getElementsByClassName("product_name")[0].textContent.toLowerCase();
+                if (name.includes(input)) {
+                    product.style.display = "block";
+                    found = true;
+                } else {
+                    product.style.display = "none";
+                }
+            });
+
+            // Показать сообщение, если продукт не найден
+            if (!found) {
+                alert("Product not found");
+            }
+        }
+        function submitQuestion() {
+            const question = document.getElementById("userQuestion").value;
+            if (question) {
+                alert("Ваш вопрос отправлен! Мы скоро на него ответим.");
+            } else {
+                alert("Пожалуйста, введите вопрос.");
+            }
+        }
+    </script>
+
+    <header>
+        <nav id="myNavbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container ">
+                <a class="navbar-brand" href="/front">CODS</a>
+                <button
+                    class="navbar-toggler hidden-lg-up"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                ></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul id="menu" class="navbar-nav me-auto mt-2 mt-lg-0">
+                        <li tabindex="0" class="nav-item">
+                            <a class="nav-link active" href="/front" aria-current="page" style="color:#2E4C72 ;">Home
+                                <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li tabindex="0" class="nav-item">
+                            <a class="nav-link" href="/catalog">Catalog</a>
+                        </li>
+                        <li tabindex="0" class="nav-item">
+                            <a class="nav-link" href="/basket">Basket</a>
+                        </li>
+                        <li tabindex="0" class="nav-item">
+                            <a class="nav-link" href="/profile">Profile</a>
+                        </li>
+                    
+                    </ul>
+                    <button id="logoutButton" class="btn">Logout</button>
+                
+                    <button
+                            id="changeBtn"
+                            class="btn my-1 my-sm-0 mx-4"
+                            type="button"
+                            onclick="changeBackground()"
+                        >
+                            Change Colors
+                        </button>
+                        <audio id="saveSound" src="imgs/save.mp3" preload="auto"></audio>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="flex-grow-1 h-100">
+        <div class="catalog-container mt-5 pt-5 text-center">
+            <div class="search-bar d-flex justify-content-center align-items-center gap-4">
+                <div class="catalog-title"><h1>Catalog</h1></div>
+                <input type="text" class="search-input rounded-4 p-3" placeholder="Search for a product" id="searchProductInput">
+                <button class="btn " onclick="searchProduct()">Search</button>
+            </div>
+
+            <div id="productCarousel" class="carousel slide mx-auto" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex justify-content-center flex-wrap m-3">
+                            <div class="product-item rounded-4 text-center m-2 col-6 col-sm-4 col-md-3">
+                                <img src="images/tshirt.jpg" alt="T-Shirt" class="img-fluid rounded-4 p-3">
+                                <p class="product_name">T-Shirt</p>
+                            </div>
+                            <div class="product-item rounded-4 text-center m-2 col-6 col-sm-4 col-md-3">
+                                <img src="images/outerwear.jpg" alt="Outerwear" class="img-fluid rounded-4 p-3">
+                                <p class="product_name">Outerwear</p>
+                            </div>
+                            <div class="product-item rounded-4 text-center m-2 col-6 col-sm-4 col-md-3">
+                                <img src="images/rousers.jpg" alt="Trousers" class="img-fluid rounded-4 p-3">
+                                <p class="product_name">Trousers</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center flex-wrap m-3">
+                            <div class="product-item rounded-4 text-center m-2 col-6 col-sm-4 col-md-3">
+                                <img src="images/shoes.jpg" alt="Shoes" class="img-fluid rounded-4 p-3">
+                                <p class="product_name">Shoes</p>
+                            </div>
+                            <div class="product-item rounded-4 text-center m-2 col-6 col-sm-4 col-md-3">
+                                <img src="images/necklace.jpg" alt="Necklace" class="img-fluid rounded-4 p-3">
+                                <p class="product_name">Necklace</p>
+                            </div>
+                            <div class="product-item rounded-4 text-center m-2 col-6 col-sm-4 col-md-3">
+                                <img src="images/dress.jpg" alt="Dresses" class="img-fluid rounded-4 p-3">
+                                <p class="product_name">Dresses</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex justify-content-center flex-wrap m-3">
+                            <div class="product-item rounded-4 text-center m-2 col-6 col-sm-4 col-md-3">
+                                <img src="images/bagss.jpg" alt="Bags" class="img-fluid rounded-4 p-3">
+                                <p class="product_name">Bags</p>
+                            </div>
+                            <div class="product-item rounded-4 text-center m-2 col-6 col-sm-4 col-md-3">
+                                <img src="images/jacket.jpg" alt="Jackets" class="img-fluid rounded-4 p-3">
+                                <p class="product_name">Jackets</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Prev and Next buttons -->
+                <a class="carousel-control-prev" href="#productCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#productCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            
+            
+
+            <div class="question-of-the-day m-auto text-white" style="max-width: 400px;">
+                <h3>Question of the Day</h3>
+                <p>Ask your question, and we will definitely answer it!</p>
+                <input type="text" placeholder="Write your question" class="form-control" id="userQuestion" style="width: 100%; margin-bottom: 15px;">
+                <button class="btn mt-3" onclick="submitQuestion()" style="width: 100%;">Ask a question</button>
+            </div>
+
+
+        
+        </div>
+    </main>
+    <footer id="myFooter" class="footer-section text-white text-center mt-2 p-3 bottom-0 start-0 w-100">
+        <p>Created by Ussurbayeva Inkar, Ablanova Dariya, Alpieva Leila, IT-2307</p>
+        <a id="footer_text" href="#top">Back to top</a>
+    </footer>
+    <script src="/core.js"></script>
+    <script src="/public/js/catalog.js"></script>
+</body>
+</html>

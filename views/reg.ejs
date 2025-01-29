@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CODS</title>
+    <link rel="stylesheet" href="/css/reg.css">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="form-side shadow p-5 bg-white rounded" style="max-width: 500px; width: 100%;">
+            <h2 class="text">Create an Account</h2>
+            <form id="registrationForm" action="/register" method="POST">
+                <label for="username">Username:</label>
+                <input id="username" name="username" type="text" required>
+                <span class="error" id="usernameError"></span>
+            
+                <label for="email">Email:</label>
+                <input id="email" name="email" type="email" required>
+                <span class="error" id="emailError"></span>
+            
+                <label for="password">Password:</label>
+                <input id="password" name="password" type="password" required>
+                <span class="error" id="passwordError"></span>
+            
+                <label for="confirmPassword">Confirm Password:</label>
+                <input id="confirmPassword" name="confirmPassword" type="password" required>
+                <span class="error" id="confirmPasswordError"></span>
+            
+                <button type="submit" class="btn">Register</button>
+                <button id="resetButton" class="btn btn-danger" type="button">Reset</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/reg.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODS Edit profile</title>
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/edit_profile.css">
+    <link rel="icon" type="image/x-icon" href="imgs/CODS_LOGO.ico">
+    <link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header class="header-section"> 
+        <nav id="myNavbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container ">
+                <a class="navbar-brand" href="/front">CODS</a>
+                <button
+                    class="navbar-toggler hidden-lg-up"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                ></button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul id="menu" class="navbar-nav me-auto mt-2 mt-lg-0">
+                        <li tabindex="0" class="nav-item">
+                            <a class="nav-link active" href="/front" aria-current="page" style="color:#2E4C72 ;">Home
+                                <span class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li tabindex="0" class="nav-item">
+                            <a class="nav-link" href="/catalog">Catalog</a>
+                        </li>
+                        <li tabindex="0" class="nav-item">
+                            <a class="nav-link" href="/basket">Basket</a>
+                        </li>
+                        <li tabindex="0" class="nav-item">
+                            <a class="nav-link" href="/profile">Profile</a>
+                        </li>
+                        
+                    </ul>
+                    <button id="logoutButton" class="btn">Logout</button>
+
+                    <button
+                            id="changeBtn"
+                            class="btn my-1 my-sm-0 mx-4"
+                            type="button"
+                            onclick="changeBackground()"
+                        >
+                            Change Colors
+                        </button>
+                        <audio id="saveSound" src="imgs/save.mp3" preload="auto"></audio>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main-section flex-grow-1 h-100">
+        <div class="header-section2 ms-5 mb-3">
+            <h2>Edit profile</h2>
+            <p id="greeting"></p>
+            <button 
+                id="readMoreBtn"
+                class="btn"
+                type="button"
+                onclick="readMore()"
+            >Read more</button>
+            <button 
+                id="timeBtn"
+                class="btn"
+                type="button"
+            >Time</button>
+                <div id="extraContent">
+                      <p>Here you can change your profile, change your email or password, add personal data and a photo.</p>
+                </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div id="myContainer" class="container col-12 col-md-5 rounded-4 p-4 ">
+                    <img id="Gojo" src="imgs/Goju_satoru.JPG" alt="Gojo Satoru" class="img-fluid rounded-4 mb-3">
+                    <form id="myForm" class="rounded-4 mt-2">
+                        <div class="mb-3">
+                            <label for="exampleInputUsername" class="form-label">Username</label>
+                            <input class="form-control" id="exampleInputUsername">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail" class="form-label">Email address</label>
+                            <input class="form-control" id="exampleInputEmail" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text" style="color: rgb(154, 154, 154);">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword">
+                        </div>
+                    
+                        <div class="gender-block mb-3">
+                            <label>Choose your gender:</label>
+                            <select name="gender" class="select-class form-select rounded-3">
+                                <option value="male">Men</option>
+                                <option value="female">Women</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    
+                        <div class="d-flex flex-column flex-md-row align-items-center gap-2 mb-3">
+                            <label>Day of birth:</label>
+                            <select name="day" class="select-class form-select rounded-3">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                            <select name="month" class="select-class form-select rounded-3">
+                                <option value="january">January</option>
+                                <option value="february">February</option>
+                                <option value="march">March</option>
+                                <option value="april">April</option>
+                                <option value="may">May</option>
+                                <option value="june">June</option>
+                                <option value="july">July</option>
+                                <option value="august">August</option>
+                                <option value="september">September</option>
+                                <option value="october">October</option>
+                                <option value="november">November</option>
+                                <option value="december">December</option>
+                            </select>
+                            <select name="year" class="select-class form-select rounded-3">
+                                <option value="1990">1990</option>
+                                <option value="1991">1991</option>
+                                <option value="1992">1992</option>
+                                <option value="1993">1993</option>
+                                <option value="1994">1994</option>
+                                <option value="1995">1995</option>
+                                <option value="1996">1996</option>
+                                <option value="1997">1997</option>
+                                <option value="1998">1998</option>
+                                <option value="1999">1999</option>
+                                <option value="2000">2000</option>
+                                <option value="2001">2001</option>
+                                <option value="2002">2002</option>
+                                <option value="2003">2003</option>
+                                <option value="2004">2004</option>
+                                <option value="2005">2005</option>
+                                <option value="2006">2006</option>
+                                <option value="2007">2007</option>
+                                <option value="2008">2008</option>
+                                <option value="2009">2009</option>
+                                <option value="2010">2010</option>
+                                <option value="2011">2011</option>
+                                <option value="2012">2012</option>
+                                <option value="2013">2013</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn w-100" id="saveButton">Save</button>
+                        <audio id="saveSound" src="imgs/save.mp3" preload="auto"></audio>
+                    </form>
+                </div>
+
+                <div class="col-12 col-md-5 p-2 order-md-2 order-2 d-none d-md-block h-100 me-5">
+                    <img id="blue_model" src="imgs/blue_model.jpg" alt="blue_model" class="img-fluid rounded-4">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="myFooter" class="footer-section text-white text-center p-2 mb-5 bottom-0 start-0 w-100">
+        <p>Created by Ussurbayeva Inkar, Ablanova Dariya, Alpieva Leila, IT-2307</p>
+        <a id="footer_text" href="#top">Back to top</a>
+    </footer>
+    <script src="/public/js/edit_profile.js"></script>
+
+</body>
+</html>

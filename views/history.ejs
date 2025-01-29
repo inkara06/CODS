@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request History</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #2E4C72, #476C9D, #7497CF);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            color: black;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .table th {
+            background-color: #476C9D;
+            color: white;
+        }
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        .pre-box {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .btn-primary {
+            background-color: #476C9D;
+            border: none;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #2E4C72;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center mb-4">
+            <h1>Request History</h1>
+        </header>
+        <!-- Back to Home Button -->
+        <div class="text-center mt-4">
+            <a href="/front" class="btn btn-primary btn-lg mb-3">Back to Home</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>User Input</th>
+                        <th>Exchange Data</th>
+                        <th>News Data</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% history.forEach(request => { %>
+                        <tr>
+                            <td><%= request.userData %></td>
+                            <td><pre class="pre-box"><%= JSON.stringify(request.exchangeData, null, 2) %></pre></td>
+                            <td><pre class="pre-box"><%= JSON.stringify(request.newsData, null, 2) %></pre></td>
+                            <td><%= new Date(request.timestamp).toLocaleString() %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
